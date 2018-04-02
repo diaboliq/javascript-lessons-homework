@@ -26,7 +26,7 @@
 						if( this._mods.some( (elem)=>{ return (elem == mod);} ) )
 							this._mod = mod;
 						else 
-						console.log("Incorrect value. Must be \"radio\", \"CDPlayer\", \"USBPlayer\"");
+						console.log("Incorrect value. Must be \"radio\", \"CDPlayer\"");
 					 });
 				
 				console.dir(this);

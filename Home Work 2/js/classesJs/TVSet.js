@@ -9,14 +9,14 @@
 			}
 
 			connectDevice (newDevice) {
-				if( "_USBInOut" in newDevice  && newDevice._USBState == false){
+				if( "_USBInOut" in newDevice  && newDevice._USBState == false && this._USBState == false){
 					this._USBInOut = newDevice;
 					this._USBState = true;
 					newDevice._USBState = true;
 					console.dir(this);
 				}
 				else {
-					console.log("Device can not be connected. Check USB connectivity")
+					console.log("Device can not be connected. Check USB connectivity or USB port is busy")
 				}
 			}
 
