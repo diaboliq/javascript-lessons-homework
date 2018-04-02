@@ -1,0 +1,65 @@
+<html>
+<head>
+</head>
+
+<body>
+	<script>
+
+		function swap(arr, f, s){				// Обмен значениями у двух элементов искомого массива 
+			var temp;
+			temp = arr[f];
+			arr[f] = arr[s];
+			arr[s] = temp;
+		}
+
+		function init(arr, arrLength){			// Инициализация искомого массива случайными значениями
+			for(var i=0; i<arrLength; i++){
+				arr[i] = Math.floor(Math.random()*20);  // Инициализируем массив случайными значениями от 0 до 19(включительно)
+			}
+		}
+
+		function doQSort(arr, left, right){		// Быстрая сортировка
+			
+			var l = left;
+			var r = right;
+			var middle = arr[Math.floor((l+r)/2)];
+
+			while(l<r){							// Основной алгоритм qSort
+
+				while(arr[l] < middle){
+					l++;
+				}
+				
+				while(arr[r] > middle){
+					r--;
+				}
+				
+				if(l<=r){
+					swap(arr, l, r);
+					l++;
+					r--;
+				}
+			}
+
+				if(l<right){						// Условие выхода из рекурсии
+					doQSort(arr, l, right);
+				}
+
+				if(r>left){						// Условие выхода из рекурсии
+					doQSort(arr, left, r);
+				}
+		}
+
+		var testArr = [];						// Искомый массив
+		var testArrLength = prompt("Введите кол-во элементов нового массива", "n");			// Желаемый размер массива
+
+
+		init(testArr, testArrLength);			
+		document.write("Исходный массив</br>" + testArr + "</br></br>");
+
+		doQSort(testArr, 0, testArr.length-1);	//
+		document.write("Отсортированный массив</br>" + testArr + "</br>");
+
+	</script>
+</body>
+</html>
