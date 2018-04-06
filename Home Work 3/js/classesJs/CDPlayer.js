@@ -13,7 +13,6 @@
 		coverUp () {
 			if(this._playState == false){
 				this._cover = false;
-				console.dir(this);
 				this.render();
 			}
 			else {
@@ -23,7 +22,6 @@
 
 		coverDown () {
 			this._cover = true;
-			console.dir(this);
 			this.render();
 		}
 
@@ -43,7 +41,6 @@
 			else{
 				console.log("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
 			}
-			console.dir(this);
 		}
 
 		removeCD () {
@@ -54,7 +51,6 @@
 			else{
 				console.log("Can't remove CD. Plaese, check cover. Cover must be in Up statement")
 			}
-			console.dir(this);
 		}
 
 		get CD () {
@@ -103,7 +99,6 @@
 				else {
 					console.dir("Check device Power/mod/CD presence");
 				}
-			console.dir(this);
 		}
 
 		get currentSong () {
@@ -123,9 +118,7 @@
 		}
 
 		render () {
-
-
-
+			
 				this._rootElem = document.getElementById("root");
 				let wrapper = document.createElement("div");
 

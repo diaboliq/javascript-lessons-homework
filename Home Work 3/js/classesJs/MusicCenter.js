@@ -9,7 +9,6 @@
 			}
 
 			nextSong () {
-				console.dir(this);
 				if(this._mod == this._mods[1])
 					super.nextSong();
 				else
@@ -32,8 +31,6 @@
 						else 
 						console.log("Incorrect value. Must be \"radio\", \"CDPlayer\"");
 					 });
-				
-				console.dir(this);
 			}
 
 			get mod () {
@@ -50,7 +47,6 @@
 					} );
 				else
 					console.log(`Can't do this. Current mod is ${this._mod}`);
-				console.dir(this);
 			}
 
 			decreaseFrequency () {
@@ -61,9 +57,9 @@
 							this.render();
 						}
 					} );
-				else
+				else{
 					console.log(`Can't do this. Current mod is ${this._mod}`);
-				console.dir(this);
+				}
 			}
 
 			set frequency (freq) {
@@ -78,10 +74,9 @@
 						this._frequency = freq;
 						this.render();
 					} );
-				else
+				else{
 					console.log(`Can't do this. Current mod is ${this._mod}`);
-
-				console.dir(this);
+				}
 			}
 
 			get frequency () {

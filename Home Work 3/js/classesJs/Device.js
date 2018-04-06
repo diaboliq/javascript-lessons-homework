@@ -43,7 +43,6 @@
 
 				this._model = model;
 				this.render();
-				console.dir(this);
 		}
 
 		get model () {

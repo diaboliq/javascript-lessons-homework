@@ -14,7 +14,6 @@
 					this._USBInOut = newDevice;
 					this._USBState = true;
 					newDevice._USBState = true;
-					console.dir(this);
 					return true;
 				}
 				else {
@@ -26,7 +25,6 @@
 				this._USBInOut._USBState = false;
 				this._USBInOut = {};
 				this._USBState = false;
-				console.dir(this);
 			}
 
 			get USBInOut () {
@@ -38,12 +36,11 @@
 			}
 
 			increaseVolume () {
-			this.doIfDeviceOn( ()=>{
-				if(this._volume < 100)
-					this._volume += 5;
-				this.render();
-			} );
-			console.dir(this);			
+				this.doIfDeviceOn( ()=>{
+					if(this._volume < 100)
+						this._volume += 5;
+					this.render();
+				} );			
 			}
 
 			decreaseVolume () {
@@ -52,7 +49,6 @@
 						this._volume -= 5;
 					this.render();
 				} );
-				console.dir(this);
 			}
 
 			set volume (level) {
@@ -66,7 +62,6 @@
 					this._volume = level;
 					this.render();
 				} );
-				console.dir(this);
 			}
 
 			get volume () {
@@ -80,7 +75,6 @@
 			increaseChannel () {
 				this.doIfDeviceOn( ()=>{
 					this._currentChannel++;
-					console.dir(this);
 					this.render();
 				} )
 			}
@@ -88,7 +82,6 @@
 			decreaseChannel () {
 				this.doIfDeviceOn( ()=>{
 					this._currentChannel--;
-					console.dir(this);
 					this.render();
 				} )
 			}
@@ -103,7 +96,6 @@
 					this._currentChannel = channel;
 					this.render();
 				} );
-				console.dir(this);
 			}
 
 			get currentChannel () {

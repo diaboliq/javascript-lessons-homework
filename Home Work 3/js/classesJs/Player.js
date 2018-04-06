@@ -12,7 +12,6 @@
 					this._volume += 5;
 				this.render();
 			} );
-			console.dir(this);			
 		}
 
 		decreaseVolume () {
@@ -21,7 +20,6 @@
 					this._volume -= 5;
 				this.render();
 			} );
-			console.dir(this);
 		}
 
 		set volume (level) {
@@ -38,7 +36,6 @@
 
 				this._volume = level;
 			} );
-			console.dir(this);
 		}
 
 		get volume () {
@@ -52,7 +49,6 @@
 		play () {
 			this.doIfDeviceOn( ()=>{this._playState = true;} );
 			this.render();
-			console.dir(this);
 		}
 
 		get playState () {
@@ -63,7 +59,6 @@
 		stop () {
 			this.doIfDeviceOn( ()=>{this._playState = false} );
 			this.render();
-			console.dir(this);	
 		}
 
 
