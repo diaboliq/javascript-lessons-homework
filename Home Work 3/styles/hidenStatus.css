@@ -1,0 +1,23 @@
+
+
+
+.wrapper {
+	display: flex;
+}
+
+.hidenStatus {
+	display: none;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+
+.hidenStatusHover {
+	font-size: 11px;
+	display: flex;
+	flex-direction: column;
+	padding: 7px;
+	border-radius: 7px;
+	background-color: #c4dafc;
+}
