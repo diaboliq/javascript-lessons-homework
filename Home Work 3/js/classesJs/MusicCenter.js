@@ -2,7 +2,7 @@
 
 			constructor () {
 				super();
-				this._device = "MusicCenter"
+				this._device = "MusicCenter";
 				this._frequency = 0;
 				this._mods = ["radio", "CDPlayer", "USBPlayer"];
 				this._mod = this._mods[0];

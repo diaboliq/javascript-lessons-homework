@@ -9,6 +9,9 @@
 			this.render();
 		}
 		off () {
+			if(this._playState){
+				this._playState = false;
+			}
 			this._state = false;
 			this.render();
 		}

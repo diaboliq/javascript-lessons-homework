@@ -1,62 +1,67 @@
-	class Player extends Device {
+function Player () {	// Device extends
+	Device.call(this);	
+	this._volume = 5;
+	this._playState = false;// state = FALSE means NO CONNECTIONS in this time. state = TRUE means CONNECTION	
+}
 
-		constructor () {
-			super();
-			this._volume = 5;
-			this._play = false;
-		}// model, 
+Player.prototype = Object.create(Device.prototype);
+Player.prototype.constructor = Player;
 
-		increaseVolume () {
-			this.doIfDeviceOn( ()=>{
-				if(this._volume < 100)
-					this._volume += 5;
-			} );
-			console.dir(this);			
+Player.prototype.increaseVolume = function() {
+	this.doIfDeviceOn( function(){
+		if(this._volume < 100){
+			this._volume += 5;
+			this.render();
 		}
+	} );		
+}
 
-		decreaseVolume () {
-			this.doIfDeviceOn( ()=>{
-				if(this._volume >=5)
-					this._volume -= 5;
-			} );
-			console.dir(this);
+Player.prototype.decreaseVolume = function() {
+	this.doIfDeviceOn( function(){
+		if(this._volume >= 5){
+			this._volume -= 5;
+			this.render();
 		}
+	} );	
+}
 
-		set volume (level) {
-			this.doIfDeviceOn( ()=>{
-				if(typeof level != "number"){
-					console.log( "must be typeof(volume) == \"number\"" )
-					return;
-				}
-
-				if(level > 100){
-					console.log( "must be 0 < volume >= 100" );
-					return;
-				}
-
-				this._volume = level;
-			} );
-			console.dir(this);
+Player.prototype.setVolume = function(level) {
+	this.doIfDeviceOn( function(){
+		if(typeof level != "number"){
+			console.log( "must be typeof(volume) == \"number\"" )
+			return;
 		}
-
-		get volume () {
-			return this.doIfDeviceOn( ()=>{return this._volume} );
+			if(level > 100){
+			console.log( "must be 0 < volume >= 100" );
+			return;
 		}
+			this._volume = level;
+			this.render();
+	} );
+}
 
-		showVolume () {
-			this.doIfDeviceOn( ()=>{console.dir(this._volume)} );
-		}
+Player.prototype.getVolume = function() {
+	return this._volume;
+}
 
-		play () {
-			this.doIfDeviceOn( ()=>{this._play = true} );
-			console.dir(this);
-		}
+Player.prototype.showVolume = function() {
+	console.log(this._volume);
+}
 
-		stop () {
-			this.doIfDeviceOn( ()=>{this._play = false} );
-			console.dir(this);	
-		}
+Player.prototype.play = function() {
+	this.doIfDeviceOn( function() {
+		this._playState = true;
+		this.render();
+	} );
+}
 
+Player.prototype.stop = function() {
+	this.doIfDeviceOn( function() {
+		this._playState = false;
+		this.render();
+	} );
+}
 
-		
-	}
+Player.prototype.getPlayState = function() {
+	return this._playState;
+}
