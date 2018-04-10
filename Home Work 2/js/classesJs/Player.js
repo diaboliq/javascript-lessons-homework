@@ -28,11 +28,11 @@ Player.prototype.decreaseVolume = function() {
 Player.prototype.setVolume = function(level) {
 	this.doIfDeviceOn( function(){
 		if(typeof level != "number"){
-			console.log( "must be typeof(volume) == \"number\"" )
+			Render.viewMessage( "must be typeof(volume) == \"number\"" )
 			return;
 		}
 			if(level > 100){
-			console.log( "must be 0 < volume >= 100" );
+			Render.viewMessage( "must be 0 < volume >= 100" );
 			return;
 		}
 			this._volume = level;

@@ -181,11 +181,6 @@
 					wrapper.className = "wrapper";
 				}
 					
-				
-				
-
-
-
 				let musicCenter = document.createElement("div");
 				musicCenter.className = "musicCenter";
 				musicCenter.addEventListener("mouseover", () => {
@@ -482,7 +477,7 @@
 		}
 
 		static renderHidenStatus (hidenStatus) {		
-			let tempArr = ["state" , "model", "volume", "playState", "cover", "CD", "currentSong", "memory", "USBState", "frequency", "mod"];
+			let tempArr = ["state" , "model", "volume", "playState", "cover", "CD", "currentSong", "memory", "USBState", "frequency", "mod", "currentChannel"];
 			for(let i=0; i<tempArr.length; i++){
 				if(this[tempArr[i]] != undefined){
 					let temp = document.createElement("div");
@@ -490,5 +485,33 @@
 					hidenStatus.appendChild(temp);
 				}
 			}
+		}
+
+		static viewMessage (message) {
+
+			let messageElem = document.createElement("div");
+			messageElem.className = "messageElem";
+			messageElem.style.width = "400px";
+			messageElem.innerText = message;
+			messageElem.style.position = "fixed";
+			messageElem.style.fontSize = "30px";
+			messageElem.style.left = "300px";
+			messageElem.style.top = "300px";
+			messageElem.style.backgroundColor = "#ccc";
+
+			let promise = new Promise( ( resolve, reject ) => {
+				let rootElem = document.getElementById("root");
+				rootElem.appendChild(messageElem);
+
+				setTimeout( () => {
+					resolve(rootElem);
+				}, 2000 );
+			} );
+
+			promise.then( () => {
+				rootElem.removeChild(messageElem);
+			}, () => { } 
+			);
+
 		}
 	}

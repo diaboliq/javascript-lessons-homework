@@ -477,7 +477,7 @@ function Render() {
 	}
 
 	Render.renderHidenStatus = function(hidenStatus) {
-		var tempArr = ["getState" , "getModel", "getVolume", "getPlayState", "getCover", "getCD", "getCurrentSong", "getMemory", "getUSBState", "getFrequency", "getMod"];
+		var tempArr = ["getState" , "getModel", "getVolume", "getPlayState", "getCover", "getCD", "getCurrentSong", "getMemory", "getUSBState", "getFrequency", "getMod", "getCurrentChannel"];
 		var property = "";
 		for(var i=0; i<tempArr.length; i++){
 			if(this[tempArr[i]] != undefined){
@@ -492,5 +492,32 @@ function Render() {
 				property = "";
 			}
 		}
+	}
+
+	Render.viewMessage = function( message ) {
+
+		var messageElem = document.createElement("div");
+		messageElem.className = "messageElem";
+		messageElem.style.width = "400px";
+		messageElem.innerText = message;
+		messageElem.style.position = "fixed";
+		messageElem.style.fontSize = "30px";
+		messageElem.style.left = "300px";
+		messageElem.style.top = "300px";
+		messageElem.style.backgroundColor = "#ccc";
+
+		var promise = new Promise( function( resolve, reject ) {
+			var rootElem = document.getElementById("root");
+			rootElem.appendChild(messageElem);
+
+			setTimeout( function(){
+				resolve(rootElem);
+			}, 2000 );
+		} );
+
+		promise.then( function(){
+			rootElem.removeChild(messageElem);
+		}, function() { } 
+		);
 	}
 }

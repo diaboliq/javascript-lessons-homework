@@ -16,7 +16,7 @@
 			render.call(this);
 		}
 		showState () {
-			console.dir(this._state);
+			Render.viewMessage(this._state);
 		}
 		get state () {
 			return this._state;
@@ -27,14 +27,14 @@
 				return func();
 			}
 			else {
-				console.log("Sorry, device is off")
+				Render.viewMessage("Sorry, device is off")
 				return false;
 			}
 		}
 
 		set model (model) {
 				if(model === null || model.length > 20 || model === ""){
-					return console.log("Incorrect value. Model must be less then 20 letters, type \"string\"");
+					return Render.viewMessage("Incorrect value. Model must be less then 20 letters, type \"string\"");
 				}
 				let result = 0;
 				for(var i=1; i<=model.length; i++){
@@ -42,7 +42,7 @@
 						result++;
 				}
 				if(result == model.length)
-						return console.log("Incorrect value. Model must be less then 20 letters, type \"string\"");
+						return Render.viewMessage("Incorrect value. Model must be less then 20 letters, type \"string\"");
 
 				this._model = model;
 				render.call(this);
@@ -53,6 +53,6 @@
 		}
 
 		showModel () {
-			console.log(this.model);
+			Render.viewMessage(this.model);
 		}
 	}

@@ -30,14 +30,15 @@ Device.prototype.doIfDeviceOn = function(func) {
 		return func.call(this);
 	}
 	else {
-		console.log("Sorry, device is off")
+		Render.viewMessage("Sorry, device is off")
 		return false;
 	}
 }
 
 Device.prototype.setModel = function(model) {
 	if(model === null || model.length > 20 || model === ""){
-		return console.log("Incorrect value. Model must be less then 20 letters, type \"string\"");
+		Render.viewMessage("Incorrect value. Model must be less then 20 letters, type \"string\"");
+		return;
 	}
 
 	let result = 0;
@@ -48,8 +49,9 @@ Device.prototype.setModel = function(model) {
 		}
 	}
 
-	if(result == model.length){
-		return console.log("Incorrect value. Model must be less then 20 letters, type \"string\"");
+	if(result == model.length){ 
+		Render.viewMessage("Incorrect value. Model must be less then 20 letters, type \"string\"");
+		return;
 	}
 
 	this._model = model;

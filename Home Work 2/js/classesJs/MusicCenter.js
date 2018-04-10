@@ -14,7 +14,7 @@ MusicCenter.prototype.nextSong = function() {
 		CDPlayer.prototype.nextSong.call(this);
 	}
 	else
-		console.log("Can't do this. Current mod is " + this.getMod());
+		Render.viewMessage("Can't do this. Current mod is " + this.getMod());
 }
 
 MusicCenter.prototype.previousSong = function() {
@@ -22,7 +22,7 @@ MusicCenter.prototype.previousSong = function() {
 		CDPlayer.prototype.previousSong.call(this);
 	}
 	else
-		console.log("Can't do this. Current mod is " + this.getMod());
+		Render.viewMessage("Can't do this. Current mod is " + this.getMod());
 }
 
 MusicCenter.prototype.changeMod = function(mod) {
@@ -32,7 +32,7 @@ MusicCenter.prototype.changeMod = function(mod) {
 			render.call(this);
 		}
 		else 
-		console.log("Incorrect value. Must be \"radio\", \"CDPlayer\"");
+		Render.viewMessage("Incorrect value. Must be \"radio\", \"CDPlayer\"");
 	});
 }
 
@@ -49,7 +49,7 @@ MusicCenter.prototype.increaseFrequency = function() {
 			}
 		} );
 	else
-		console.log("Can't do this. Current mod is " + this.getMod());
+		Render.viewMessage("Can't do this. Current mod is " + this.getMod());
 }
 
 MusicCenter.prototype.decreaseFrequency = function() {
@@ -61,7 +61,7 @@ MusicCenter.prototype.decreaseFrequency = function() {
 			}
 		} );
 	else
-		console.log("Can't do this. Current mod is " + this.getMod());
+		Render.viewMessage("Can't do this. Current mod is " + this.getMod());
 }
 
 MusicCenter.prototype.setFrequency = function(freq) {
@@ -76,7 +76,7 @@ MusicCenter.prototype.setFrequency = function(freq) {
 			render.call(this);
 		} );
 	else{
-		console.log(`Can't do this. Current mod is ${this._mod}`);
+		Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 	}
 }
 
@@ -85,5 +85,5 @@ MusicCenter.prototype.getFrequency = function() {
 }
 
 MusicCenter.prototype.showFrequency = function() {
-	console.log(this._frequency);
+	Render.viewMessage(this._frequency);
 }

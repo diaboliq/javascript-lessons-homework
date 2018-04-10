@@ -18,7 +18,7 @@ TVSet.prototype.connectDevice = function() {
 		return true;
 	}
 	else {
-		console.log("Device can not be connected. Check USB connectivity or USB port is busy")
+		Render.viewMessage("Device can not be connected. Check USB connectivity or USB port is busy")
 	}
 }
 
@@ -56,7 +56,7 @@ TVSet.prototype.setVolume = function(level) {
 	this.doIfDeviceOn( ()=>{
 		var parse = parseInt(level, 10);
 		if( isNaN(parse) || parse > 100 || parse < 0 ){
-			console.log( "must be 0 < volume >= 100" );
+			Render.viewMessage( "must be 0 < volume >= 100" );
 			return;
 		}
 		this._volume = level;
@@ -76,15 +76,19 @@ TVSet.prototype.showVolume = function() {
 
 TVSet.prototype.increaseChannel = function() {
 	this.doIfDeviceOn( function() {
-		this._currentChannel++;
-		render.call(this);
+		if(this.getCurrentChannel() <= 100){
+			this._currentChannel++;
+			render.call(this);
+		}
 	} );
 }
 
 TVSet.prototype.decreaseChannel = function() {
 	this.doIfDeviceOn( function() {
-		this._currentChannel--;
-		render.call(this);
+		if(this.getCurrentChannel() > 0){
+			this._currentChannel--;
+			render.call(this);
+		}
 	} )
 }
 
@@ -96,7 +100,7 @@ TVSet.prototype.setCurrentChannel = function(channel) {
 	this.doIfDeviceOn( function() {
 		var parse = parseInt(channel, 10);
 		if( isNaN(parse) || parse > 100 || parse < 0 ){
-			console.log( "must be 0 < channel >= 100" );
+			Render.viewMessage( "must be 0 < channel >= 100" );
 			return;
 		}
 		this._currentChannel = channel;

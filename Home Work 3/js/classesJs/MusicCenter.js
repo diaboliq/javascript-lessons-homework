@@ -12,14 +12,14 @@
 				if(this._mod == this._mods[1])
 					super.nextSong();
 				else
-					console.log(`Can't do this. Current mod is ${this._mod}`);
+					Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 			}
 
 			previousSong () {
 				if(this._mod == this._mods[1])
 					super.previousSong();
 				else
-					console.log(`Can't do this. Current mod is ${this._mod}`);
+					Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 			}
 
 			changeMod (mod) {
@@ -29,7 +29,7 @@
 							render.call(this);
 						}
 						else 
-						console.log("Incorrect value. Must be \"radio\", \"CDPlayer\"");
+						Render.viewMessage("Incorrect value. Must be \"radio\", \"CDPlayer\"");
 					 });
 			}
 
@@ -46,7 +46,7 @@
 						}
 					} );
 				else
-					console.log(`Can't do this. Current mod is ${this._mod}`);
+					Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 			}
 
 			decreaseFrequency () {
@@ -58,7 +58,7 @@
 						}
 					} );
 				else{
-					console.log(`Can't do this. Current mod is ${this._mod}`);
+					Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 				}
 			}
 
@@ -75,7 +75,7 @@
 						render.call(this);
 					} );
 				else{
-					console.log(`Can't do this. Current mod is ${this._mod}`);
+					Render.viewMessage(`Can't do this. Current mod is ${this._mod}`);
 				}
 			}
 
@@ -84,7 +84,7 @@
 			}
 
 			showFrequency () {
-				console.log(this._frequency);
+				Render.viewMessage(this._frequency);
 			}
 
 		}

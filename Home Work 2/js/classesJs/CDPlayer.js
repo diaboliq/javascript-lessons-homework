@@ -41,7 +41,7 @@ CDPlayer.prototype.insertCD = function() {
 		render.call(this);
 	}
 	else{
-		console.log("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
+		Render.viewMessage("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
 	}
 }
 
@@ -51,7 +51,7 @@ CDPlayer.prototype.removeCD = function() {
 		render.call(this);
 	}
 	else{
-		console.log("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
+		Render.viewMessage("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
 	}
 }
 
@@ -70,7 +70,7 @@ CDPlayer.prototype.play = function() {
 			Player.prototype.play.call(this);
 	}
 	else {
-		console.log("Can't play. Please, check CD, cover, or power of device")
+		Render.viewMessage("Can't play. Please, check CD, cover, or power of device")
 	}
 }
 
@@ -101,7 +101,7 @@ CDPlayer.prototype.setCurrentSong = function(song) {
 			render.call(this);
 		}
 	else {
-		console.dir("Check device Power/mod/CD presence");
+		Render.viewMessage("Check device Power/mod/CD presence");
 	}
 }
 

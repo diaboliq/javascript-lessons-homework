@@ -17,7 +17,7 @@
 					return true;
 				}
 				else {
-					console.log("Device can not be connected. Check USB connectivity or USB port is busy")
+					Render.viewMessage("Device can not be connected. Check USB connectivity or USB port is busy")
 				}
 			}
 
@@ -55,7 +55,7 @@
 				this.doIfDeviceOn( ()=>{
 					let parse = parseInt(level, 10);
 					if( isNaN(parse) || parse > 100 || parse < 0 ){
-						console.log( "must be 0 < volume >= 100" );
+						Render.viewMessage( "must be 0 < volume >= 100" );
 						return;
 					}
 					this._volume = level;
@@ -64,7 +64,7 @@
 			}
 
 			get volume () {
-				return this.doIfDeviceOn( ()=>{return this._volume} );
+				return this._volume
 			}
 
 			showVolume () {
@@ -73,15 +73,19 @@
 
 			increaseChannel () {
 				this.doIfDeviceOn( ()=>{
-					this._currentChannel++;
-					render.call(this);
+					if(this.currentChannel <= 100){
+						this._currentChannel++;
+						render.call(this);
+					}
 				} )
 			}
 
 			decreaseChannel () {
 				this.doIfDeviceOn( ()=>{
-					this._currentChannel--;
-					render.call(this);
+					if(this.currentChannel > 0){
+						this._currentChannel--;
+						render.call(this);
+					}
 				} )
 			}
 
@@ -89,7 +93,7 @@
 				this.doIfDeviceOn( ()=>{
 					let parse = parseInt(channel, 10);
 					if( isNaN(parse) || parse > 100 || parse < 0 ){
-						console.log( "must be 0 < channel >= 100" );
+						Render.viewMessage( "must be 0 < channel >= 100" );
 						return;
 					}
 					this._currentChannel = channel;

@@ -16,7 +16,7 @@
 				render.call(this);
 			}
 			else {
-				console.dir("Can't open the player cover. Player is on \"play\"")
+				Render.viewMessage("Can't open the player cover. Player is on \"play\"")
 			}
 		}
 
@@ -39,7 +39,7 @@
 				render.call(this);
 			}
 			else{
-				console.log("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
+				Render.viewMessage("Can't insert CD. Plaese, check cover. Cover must be in Up statement")
 			}
 		}
 
@@ -49,7 +49,7 @@
 				render.call(this);
 			}
 			else{
-				console.log("Can't remove CD. Plaese, check cover. Cover must be in Up statement")
+				Render.viewMessage("Can't remove CD. Plaese, check cover. Cover must be in Up statement")
 			}
 		}
 
@@ -68,7 +68,7 @@
 				super.play();
 			}
 			else {
-				console.log("Can't play. Please, check CD, cover, or power of device")
+				Render.viewMessage("Can't play. Please, check CD, cover, or power of device")
 			}
 		}
 
@@ -97,7 +97,7 @@
 						render.call(this);
 					}
 				else {
-					console.dir("Check device Power/mod/CD presence");
+					Render.viewMessage("Check device Power/mod/CD presence");
 				}
 		}
 
