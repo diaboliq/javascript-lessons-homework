@@ -11,7 +11,7 @@ Player.prototype.increaseVolume = function() {
 	this.doIfDeviceOn( function(){
 		if(this._volume < 100){
 			this._volume += 5;
-			this.render();
+			render.call(this);
 		}
 	} );		
 }
@@ -20,7 +20,7 @@ Player.prototype.decreaseVolume = function() {
 	this.doIfDeviceOn( function(){
 		if(this._volume >= 5){
 			this._volume -= 5;
-			this.render();
+			render.call(this);
 		}
 	} );	
 }
@@ -36,7 +36,7 @@ Player.prototype.setVolume = function(level) {
 			return;
 		}
 			this._volume = level;
-			this.render();
+			render.call(this);
 	} );
 }
 
@@ -51,14 +51,14 @@ Player.prototype.showVolume = function() {
 Player.prototype.play = function() {
 	this.doIfDeviceOn( function() {
 		this._playState = true;
-		this.render();
+		render.call(this);
 	} );
 }
 
 Player.prototype.stop = function() {
 	this.doIfDeviceOn( function() {
 		this._playState = false;
-		this.render();
+		render.call(this);
 	} );
 }
 

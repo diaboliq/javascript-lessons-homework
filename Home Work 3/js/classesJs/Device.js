@@ -6,14 +6,14 @@
 		}
 		on () {
 			this._state = true;
-			this.render();
+			render.call(this);
 		}
 		off () {
 			if(this._playState){
 				this._playState = false;
 			}
 			this._state = false;
-			this.render();
+			render.call(this);
 		}
 		showState () {
 			console.dir(this._state);
@@ -45,7 +45,7 @@
 						return console.log("Incorrect value. Model must be less then 20 letters, type \"string\"");
 
 				this._model = model;
-				this.render();
+				render.call(this);
 		}
 
 		get model () {

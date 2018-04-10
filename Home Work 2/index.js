@@ -1,3 +1,7 @@
+
+var render = new Render().render;
+
+
 var sh = new SmartHouse();
 
 var rootElem = document.getElementById("root");
@@ -8,7 +12,7 @@ addCDPlayerBtn.innerText = "Add new CD Player";
 addCDPlayerBtn.className = "addCDPlayerBtn";
 addCDPlayerBtn.addEventListener("click", function() {
 	var newPlayer = sh.addCDPlayer();
-	newPlayer.render();
+	render.call(newPlayer);
 });
 rootElem.appendChild(addCDPlayerBtn);	
 	
@@ -18,7 +22,7 @@ addMusicCenterBtn.innerText = "Add new Music Center";
 addMusicCenterBtn.className = "addMusicCenterBtn";
 addMusicCenterBtn.addEventListener("click", function() {
 	var newMusicCenter = sh.addMusicCenter();
-	newMusicCenter.render();
+	render.call(newMusicCenter);
 });
 rootElem.appendChild(addMusicCenterBtn);	
 
@@ -28,7 +32,7 @@ addTVSetBtn.innerText = "Add new TVset";
 addTVSetBtn.className = "addTVSetBtn";
 addTVSetBtn.addEventListener("click", function() {
 	var newTVSet = sh.addTVSet();
-	newTVSet.render();
+	render.call(newTVSet);
 });
 rootElem.appendChild(addTVSetBtn);
 

@@ -10,7 +10,7 @@
 			this.doIfDeviceOn( ()=>{
 				if(this._volume < 100)
 					this._volume += 5;
-				this.render();
+				render.call(this);
 			} );
 		}
 
@@ -18,7 +18,7 @@
 			this.doIfDeviceOn( ()=>{
 				if(this._volume >=5)
 					this._volume -= 5;
-				this.render();
+				render.call(this);
 			} );
 		}
 
@@ -48,7 +48,7 @@
 
 		play () {
 			this.doIfDeviceOn( ()=>{this._playState = true;} );
-			this.render();
+			render.call(this);
 		}
 
 		get playState () {
@@ -58,7 +58,7 @@
 
 		stop () {
 			this.doIfDeviceOn( ()=>{this._playState = false} );
-			this.render();
+			render.call(this);
 		}
 
 

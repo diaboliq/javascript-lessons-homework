@@ -6,7 +6,7 @@ function Device () {
 
 Device.prototype.on  = function() {
 	this._state = true;
-	this.render();
+	render.call(this);
 }
 
 Device.prototype.off  = function() {
@@ -14,7 +14,7 @@ Device.prototype.off  = function() {
 		this._playState = false;
 	}
 	this._state = false;
-	this.render();
+	render.call(this);
 }
 
 Device.prototype.showState  = function() {
@@ -53,7 +53,7 @@ Device.prototype.setModel = function(model) {
 	}
 
 	this._model = model;
-	this.render();
+	render.call(this);
 }
 
 Device.prototype.getModel = function() {

@@ -1,4 +1,4 @@
-	
+	let render = new Render().render;	
 
 
 	let sh = new SmartHouse();
@@ -11,7 +11,7 @@
 	addCDPlayerBtn.className = "addCDPlayerBtn";
 	addCDPlayerBtn.addEventListener("click", () => {
 		let newPlayer = sh.addCDPlayer();
-		newPlayer.render();
+		render.call(newPlayer);
 	});
 	rootElem.appendChild(addCDPlayerBtn);	
 	
@@ -21,7 +21,7 @@
 	addMusicCenterBtn.className = "addMusicCenterBtn";
 	addMusicCenterBtn.addEventListener("click", () => {
 		let newMusicCenter = sh.addMusicCenter();
-		newMusicCenter.render();
+		render.call(newMusicCenter);
 	});
 	rootElem.appendChild(addMusicCenterBtn);	
 
@@ -31,7 +31,7 @@
 	addTVSetBtn.className = "addTVSetBtn";
 	addTVSetBtn.addEventListener("click", () => {
 		let newTVSet = sh.addTVSet();
-		newTVSet.render();
+		render.call(newTVSet);
 	});
 	rootElem.appendChild(addTVSetBtn);
 
